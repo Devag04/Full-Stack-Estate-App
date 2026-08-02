@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Dashboard - Real Estate Hub</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <link rel="stylesheet" href="styling/favourite.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">Real Estate Hub</div>
+        <div class="user-menu">
+            <a href="dashboard.html">View All Property</a>
+            <a href="message.html">Messages</a>
+            <button href="../index.html" class="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="search-bar">
+            <div class="search-grid">
+                <input type="text" placeholder="City or address" id="proplocation">
+                <select id="proptype">
+                    <option value="">Property Type</option>
+                    <option value="house">House</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="condo">Condo</option>
+                </select>
+                <input type="number" placeholder="Min Price" id="minprice">
+                <input type="number" placeholder="Max Price" id="maxprice">
+                <input type="number" placeholder="Bedrooms" id="beds">
+                <input type="number" placeholder="Bathrooms" id="baths">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <div class="properties-grid">
+            <!-- <div class="property-card">
+                <div class="property-image">🏡</div>
+                <div class="property-info">
+                    <div class="property-price">$450,000</div>
+                    <div class="property-address">123 Main Street</div>
+                    <div class="property-details">
+                        <span class="property-detail">3 Bed</span>
+                        <span class="property-detail">2 Bath</span>
+                        <span class="property-detail">1,500 sqft</span>
+                    </div>
+                    <p class="property-description">Beautiful home in quiet neighborhood</p>
+                    <button class="btn-interest">View Details</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">🏠</div>
+                <div class="property-info">
+                    <div class="property-price">$575,000</div>
+                    <div class="property-address">456 Oak Avenue</div>
+                    <div class="property-details">
+                        <span class="property-detail">4 Bed</span>
+                        <span class="property-detail">3 Bath</span>
+                        <span class="property-detail">2,200 sqft</span>
+                    </div>
+                    <p class="property-description">Modern home with great backyard</p>
+                    <button class="btn-interest">View Details</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">🏘️</div>
+                <div class="property-info">
+                    <div class="property-price">$325,000</div>
+                    <div class="property-address">789 Elm Road</div>
+                    <div class="property-details">
+                        <span class="property-detail">2 Bed</span>
+                        <span class="property-detail">1 Bath</span>
+                        <span class="property-detail">1,100 sqft</span>
+                    </div>
+                    <p class="property-description">Cozy starter home near schools</p>
+                    <button class="btn-interest">View Details</button>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">🏢</div>
+                <div class="property-info">
+                    <div class="property-price">$875,000</div>
+                    <div class="property-address">321 Pine Street</div>
+                    <div class="property-details">
+                        <span class="property-detail">5 Bed</span>
+                        <span class="property-detail">4 Bath</span>
+                        <span class="property-detail">3,000 sqft</span>
+                    </div>
+                    <p class="property-description">Luxury home with premium amenities</p>
+                    <button class="btn-interest">View Details</button>
+                </div>
+            </div> -->
+            <div class="empty-state">
+                <div class="empty-icon">🏠</div>
+                <h2>No Properties Available</h2>
+                <p>
+                    There are currently no property listings available.<br>
+                    Please check back later.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="favourite.js"></script>
+
+</html>

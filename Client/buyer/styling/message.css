@@ -1,0 +1,174 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: #1f2937;
+    color: white;
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .user-menu a,
+  .user-menu button {
+    margin-left: 16px;
+    color: white;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Page */
+  .container {
+    padding: 24px;
+  }
+  
+  .page-title {
+    margin-bottom: 20px;
+  }
+  
+  /* Chat Cards */
+  .chat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  
+  .chat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+  
+  .chat-info h3 {
+    margin: 0 0 6px 0;
+  }
+  
+  .chat-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .last-message {
+    font-size: 13px;
+    color: #777;
+  }
+  
+  .continue-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+  }
+  
+
+/* ================= Overlay ================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;      /* horizontal center */
+  align-items: center;  
+  display: none;              /* controlled by JS */
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+/* ================= Modal ================= */
+.modal-content.message {
+  width: 80%;
+  max-width: 600px;
+  height: 70%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid #000;
+}
+
+/* ================= Messages Area ================= */
+#messages {
+  flex: 1;                    /* takes remaining height */
+  min-height: 300px;          /* PRE-EXISTING SPACE */
+  margin: 0;
+  padding: 12px;
+  list-style: none;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  scroll-behavior: smooth;
+}
+
+/* ================= Message Bubbles ================= */
+#messages li {
+  max-width: 75%;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+
+/* Incoming (left) */
+#messages li.incoming {
+  align-self: flex-start;
+  background: #e5e5ea;
+  color: #000;
+}
+
+/* Outgoing (right) */
+#messages li.outgoing {
+  align-self: flex-end;
+  background: #0b93f6;
+  color: #fff;
+}
+
+/* ================= Input Area ================= */
+#message-form {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  flex-shrink: 0;             /* keeps it pinned */
+}
+
+/* Input */
+#message-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Send Button */
+#message-form button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}

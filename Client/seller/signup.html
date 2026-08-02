@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Sign Up - Real Estate Hub</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <link rel="stylesheet" href="styling/signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-box">
+            <h1>Become a Seller</h1>
+            <p>Create an account to list your properties</p>
+            <form class="seller-signup-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+1 (555) 123-4567" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" placeholder="Your Real Estate Company" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm">Confirm Password</label>
+                    <input type="password" id="confirm" placeholder="••••••••" required>
+                </div>
+                <div class="agreement">
+                    <label>
+                        <input type="checkbox" id="agreement"> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+            <div class="login-link">
+                Already have an account? <a href="login.html">Sign In</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script defer src="signup.js"></script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages - Real Estate Hub</title>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <link rel="stylesheet" href="styling/message.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">Real Estate Hub</div>
+        <div class="user-menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="favourite.html">My Favorites</a>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <h2 class="page-title">Your Conversations</h2>
+
+        <!-- Chat Cards -->
+        <div class="chat-grid">
+
+            <!-- <div class="chat-card">
+                <div class="chat-info">
+                    <h3 id="">3BHK Apartment - Noida</h3>
+                    <p class="">Seller: Rahul Sharma</p>
+                    <span class="last-message">Last message: Is the price negotiable?</span>
+                </div>
+                <button class="continue-btn">Continue Chat</button>
+            </div> -->
+
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="overlay">
+        <div class="modal-content message">
+            <ul id="messages"></ul>
+            <form id="message-form" action="">
+                <input id="message-input" autocomplete="off" /><button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script type="module" src="message.js"></script>
+
+</html>

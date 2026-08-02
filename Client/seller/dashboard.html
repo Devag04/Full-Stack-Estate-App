@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - Real Estate Hub</title>
+    <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../config.js"></script>
+    <script src="../api.js"></script>
+    <link rel="stylesheet" href="styling/dashboard.css">
+</head>
+
+<body>
+    <header class="header">
+        <a href="../index.html" class="logo">Real Estate Hub</a>
+        <div class="header-user">
+            <span>Welcome, Seller</span>
+            <button href="../index.html" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <main class="dashboard-page">
+        <section class="add-property-section">
+            <h1 class="section-title">Add New Property</h1>
+
+            <form class="property-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title" class="form-label">Property Title</label>
+                        <input type="text" id="title" name="title" class="form-input"
+                            placeholder="Modern Downtown Apartment" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" id="location" name="location" class="form-input"
+                            placeholder="Downtown, New York" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" id="price" name="price" class="form-input" placeholder="450000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type" class="form-label">Property Type</label>
+                        <select id="type" name="type" class="form-input" required>
+                            <option value="">Select Type</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House</option>
+                            <option value="condo">Condo</option>
+                            <option value="townhouse">Townhouse</option>
+                            <option value="villa">Villa</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="beds" class="form-label">Beds</label>
+                        <input type="number" id="beds" name="beds" class="form-input" placeholder="4">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="baths" class="form-label">Baths</label>
+                        <input type="number" id="baths" name="bath" class="form-input" placeholder="4">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="size" class="form-label">Size</label>
+                        <input type="number" id="size" name="size" class="form-input" placeholder="4000" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="imagefile" class="form-label">Property Image</label>
+                    <input type="file" id="imagefile" name="imagefile" class="form-input" accept="image/*" required
+                        multiple>
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" name="description" class="form-input textarea"
+                        placeholder="Describe your property..." rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Property</button>
+            </form>
+        </section>
+
+        <section class="properties-section">
+            <h2 class="section-title">Your Listings</h2>
+
+            <div class="properties-grid">
+                <!-- <div class="property-card">
+                    <div class="property-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    </div>
+                    <div class="property-details">
+                        <h3 class="property-title">Modern Downtown Apartment</h3>
+                        <p class="property-location">📍 Downtown, New York</p>
+                        <p class="property-price">$450,000</p>
+                        <div class="property-specs">
+                            <span>🛏️ 2 Beds</span>
+                            <span>🚿 2 Baths</span>
+                            <span>📐 1,200 sqft</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn btn-secondary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <div class="property-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    </div>
+                    <div class="property-details">
+                        <h3 class="property-title">Cozy Suburban Home</h3>
+                        <p class="property-location">📍 Westchester, New York</p>
+                        <p class="property-price">$550,000</p>
+                        <div class="property-specs">
+                            <span>🛏️ 3 Beds</span>
+                            <span>🚿 2 Baths</span>
+                            <span>📐 1,800 sqft</span>
+                        </div>
+                        <div class="property-actions">
+                            <button class="btn btn-secondary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="empty-state">
+                    <div class="empty-icon">🏠</div>
+                    <h2>No Properties Available</h2>
+                    <p>
+                        There are currently no property listings made by you.<br>
+                        Please list your properties.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="overlay">
+            <div class="modal">
+
+                <!-- LEFT TABS -->
+                <div class="modal-sidebar">
+                    <!-- <div class="tab messages-tab">Details</div> -->
+                </div>
+
+                <!-- RIGHT CONTENT -->
+                <div class="modal-content-wrapper">
+
+                    <div class="modal-content initial">Hello ji</div>
+
+                    <div class="modal-content message">
+                        <ul id="messages"></ul>
+                        <form id="form" action="">
+                            <input id="input" autocomplete="off" /><button>Send</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Real Estate Hub. All rights reserved.</p>
+    </footer>
+</body>
+<script src="dashboard.js"></script>
+
+</html>
